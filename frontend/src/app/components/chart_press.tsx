@@ -24,8 +24,8 @@ interface SensorData {
 }
 
 const chartConfig = {
-  temperatura: {
-    label: "Temperatura",
+  pressao: {
+    label: "Pressão",
     color: "hsl(var(--background))",
   },
 } satisfies ChartConfig;
@@ -41,7 +41,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
       <div className="bg-white p-2 shadow-lg rounded-md text-sm text-black">
         <p className="mb-1">{new Date(payload[0].payload.timestamp).toLocaleTimeString()}</p>
         <p>
-          <span className="font-semibold">{chartConfig.temperatura.label}</span>
+          <span className="font-semibold">{chartConfig.pressao.label}</span>
           <span className="ml-2">{payload[0].value}</span>
         </p>
       </div>
@@ -50,7 +50,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   return null;
 };
 
-export function ChartComponent() {
+export function ChartPressComponent() {
   const [data, setData] = useState<SensorData[]>([]);
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export function ChartComponent() {
     <Card>
       <CardHeader>
         <CardTitle>Gráfico de Área - Dados do Sensor</CardTitle>
-        <CardDescription>Dados de Temperatura</CardDescription>
+        <CardDescription>Dados de Pressão</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -102,7 +102,7 @@ export function ChartComponent() {
             />
             <Tooltip content={<CustomTooltip />} />
             <Area
-              dataKey="temperatura"
+              dataKey="pressao"
               fill="hsl(var(--foreground))"
               fillOpacity={0.3}
               stroke="hsl(var(--foreground))"
