@@ -7,7 +7,7 @@ import { MotorStatusIcon } from "./components/compress_analitc";
 
 export default function Home() {
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col overflow-y-auto scroll-invisivel relative">
       <div className="flex-1 flex">
         <main className="flex-1 flex flex-col p-6 bg-background">
           <header className="text-left p-4 rounded-md mb-6 flex justify-between">
