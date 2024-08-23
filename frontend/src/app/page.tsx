@@ -1,12 +1,12 @@
 // pages/index.tsx
 import React from 'react';
-import { SensorData } from './components/sensorData';
+import { ChartComponent } from './components/chart_temp';
 
 const Home: React.FC = () => {
   return (
     <div>
       <h1>Painel de Monitoramento do ESP32</h1>
-      <SensorData />
+      <ChartComponent />
     </div>
   );
 };
