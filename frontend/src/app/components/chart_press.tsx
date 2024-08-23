@@ -72,7 +72,7 @@ export function ChartPressComponent() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Gráfico de Área - Dados do Sensor</CardTitle>
+        <CardTitle>Gráfico - Dados do Sensor</CardTitle>
         <CardDescription>Dados de Pressão</CardDescription>
       </CardHeader>
       <CardContent>

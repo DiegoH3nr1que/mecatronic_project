@@ -72,7 +72,7 @@ export function ChartComponent() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Gráfico de Área - Dados do Sensor</CardTitle>
+        <CardTitle>Gráfico - Dados do Sensor</CardTitle>
         <CardDescription>Dados de Temperatura</CardDescription>
       </CardHeader>
       <CardContent>
