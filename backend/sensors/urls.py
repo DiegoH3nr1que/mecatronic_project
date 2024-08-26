@@ -1,7 +1,6 @@
-# esp32_api/sensors/urls.py
 from django.urls import path
-from .views import sensor_data
+from .views import SensorDataView
 
 urlpatterns = [
-    path('data/', sensor_data, name='sensor_data'),  # Essa URL agora suporta tanto GET quanto POST
+    path('api/data/', SensorDataView.as_view(), name='sensor_data'),
 ]
