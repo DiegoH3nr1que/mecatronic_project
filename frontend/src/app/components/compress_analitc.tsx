@@ -10,7 +10,7 @@ export function MotorStatusIcon() {
   useEffect(() => {
     const fetchMotorStatus = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/data/");
+        const response = await axios.get("https://diegohenrique.pythonanywhere.com/api/data/");
         const sortedData = response.data.sort(
           (a: any, b: any) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
         );
