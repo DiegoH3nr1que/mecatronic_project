@@ -13,13 +13,14 @@ class SensorDataList(generics.ListAPIView):
 @api_view(['GET', 'POST', 'DELETE'])
 def sensor_data(request):
     """
-    Example JSON response esp32
-    {
-    "temperatura": 27.5,
-    "pressao": 1009.4,
-    "motor_ligado": true
-}
+    Exemplo de JSON de resposta do esp32:
+        {
+            "temperatura": 27.5,
+            "pressao": 1009.4,
+            "motor_ligado": true
+        }
     """
+
     if request.method == 'POST':
         serializer = SensorDataSerializer(data=request.data)
         if serializer.is_valid():
