@@ -56,7 +56,7 @@ export function ChartPressComponent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/data/");
+        const response = await axios.get("https://diegohenrique.pythonanywhere.com/api/data/");
         const OrderData = response.data.sort((a: SensorData, b: SensorData) =>
           new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
         );
