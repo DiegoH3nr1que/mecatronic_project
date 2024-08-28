@@ -12,7 +12,7 @@ export default function Home() {
         <main className="flex-1 flex flex-col p-6 bg-background">
           <header className="text-left p-4 rounded-md mb-6 flex justify-between">
             <h1 className="text-4xl font-bold uppercase text-foreground">
-              Monitoramento de Compressor
+              Monitoramento de Compressor 01
             </h1>
             <div className="flex gap-3">
               <AvatarDemo />
