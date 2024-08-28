@@ -5,7 +5,7 @@ import axios from "axios";
 import { PiEngine, PiEngineFill } from "react-icons/pi";
 
 export function MotorStatusIcon() {
-  const [motorLigado, setMotorLigado] = useState<boolean | null>(null);
+  const [motorAtivo, setMotorAtivo] = useState<boolean | null>(null);
 
   useEffect(() => {
     const fetchMotorStatus = async () => {
@@ -16,9 +16,9 @@ export function MotorStatusIcon() {
         );
         const latestData = sortedData[0];
         console.log(latestData);
-        console.log(latestData.motor_ligado);
+        console.log(latestData.motor_ativo);
 
-        setMotorLigado(latestData.motor_ligado);
+        setMotorAtivo(latestData.motor_ativo);
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
       }
@@ -27,18 +27,18 @@ export function MotorStatusIcon() {
     fetchMotorStatus();
   }, []);
 
-  if (motorLigado === null) {
+  if (motorAtivo === null) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="flex items-center justify-center">
-      {motorLigado ? (
+      {motorAtivo ? (
         <PiEngineFill className="text-green-500" size={48} />
       ) : (
         <PiEngine className="text-red-500" size={48} />
       )}
-      <span className="ml-2">{motorLigado ? "ON" : "OFF"}</span>
+      <span className="ml-2">{motorAtivo ? "ON" : "OFF"}</span>
     </div>
   );
 }

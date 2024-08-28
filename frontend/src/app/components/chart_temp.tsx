@@ -19,7 +19,7 @@ import {
 interface SensorData {
   temperatura: number;
   pressao: number;
-  motor_ligado: boolean;
+  motor_ativo: boolean;
   timestamp: string; // Supondo que o timestamp seja uma string ou Date
 }
 
