@@ -17,7 +17,7 @@ def sensor_data(request):
         {
             "temperatura": 27.5,
             "pressao": 1009.4,
-            "motor_ligado": true
+            "motor_ativo": true
         }
     """
 

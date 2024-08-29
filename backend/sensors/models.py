@@ -4,7 +4,7 @@ from django.db import models
 class SensorData(models.Model):
     temperatura = models.FloatField()
     pressao = models.FloatField()
-    motor_ligado = models.BooleanField()
+    motor_ativo = models.BooleanField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

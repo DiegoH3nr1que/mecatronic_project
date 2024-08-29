@@ -52,28 +52,38 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
 
 export function ChartPressComponent() {
   const [data, setData] = useState<SensorData[]>([]);
+  const [lastPressure, setLastPressure] = useState<number | null>(null);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("https://diegohenrique.pythonanywhere.com/api/data/");
+      const OrderData = response.data.sort((a: SensorData, b: SensorData) =>
+        new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+      );
+      setData(OrderData); // Ordena os dados por timestamp antes de definir o estado
+      if (OrderData.length > 0) {
+        setLastPressure(OrderData[OrderData.length - 1].pressao); // Define o último valor de pressão
+      }
+    } catch (error) {
+      console.error("Erro ao buscar dados:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://diegohenrique.pythonanywhere.com/api/data/");
-        const OrderData = response.data.sort((a: SensorData, b: SensorData) =>
-          new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
-        );
-        setData(OrderData); // Ordena os dados por timestamp antes de definir o estado
-      } catch (error) {
-        console.error("Erro ao buscar dados:", error);
-      }
-    };
+    fetchData(); // Busca inicial de dados
 
-    fetchData();
+    const interval = setInterval(fetchData, 5000); // Atualiza os dados a cada 5 segundos
+
+    return () => clearInterval(interval); // Limpa o intervalo ao desmontar o componente
   }, []);
 
   return (
     <Card>
       <CardHeader>
         <CardTitle>Gráfico - Dados do Sensor</CardTitle>
-        <CardDescription>Dados de Pressão</CardDescription>
+        <CardDescription>
+          {lastPressure !== null ? `Última pressão registrada: ${lastPressure} ATM` : "Carregando..."}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
