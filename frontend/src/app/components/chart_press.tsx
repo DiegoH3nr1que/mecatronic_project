@@ -82,7 +82,7 @@ export function ChartPressComponent() {
       <CardHeader>
         <CardTitle>Gráfico - Dados do Sensor</CardTitle>
         <CardDescription>
-          {lastPressure !== null ? `Última pressão registrada: ${lastPressure} ATM` : "Carregando..."}
+          {lastPressure !== null ? `Última pressão registrada: ${lastPressure} BAR` : "Carregando..."}
         </CardDescription>
       </CardHeader>
       <CardContent>
